@@ -1,2 +1,2 @@
 # dev-toolkit
-This is a demo public repo fo different tech solutions
+This is a demo public repo for different tech solutions
