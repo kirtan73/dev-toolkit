@@ -21,14 +21,14 @@ A curated, code-first toolkit for mastering core software engineering concepts: 
 
 ## Conventions
 
-- Language: **Python 3.14+**.[web:10][web:15]  
+- Language: **Python 3.14+**.
 - One concept per file, with:
   - A top comment block describing the idea, use cases, and a worked example.
   - Clean, type-annotated code with minimal but meaningful inline comments.
   - Time and space complexity notes.
 - File naming:
   - Algorithms: `01_linear_search.py`, `02_binary_search.py`, etc.
-  - Patterns: `01_two_pointers_basic.py`, `02_sliding_window_fixed.py`, etc.
+  - Patterns: `01_two_pointers.py`, `02_sliding_window.py`, etc.
 
 ## How to Use This Repo
 
