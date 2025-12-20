@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgresql-mcp:
+    build: .
+    container_name: postgresql-mcp-server
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+  # Optional: PostgreSQL database for testing
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgresql-mcp-db
+    environment:
+      # PostgreSQL Docker image uses POSTGRES_PASSWORD for the postgres superuser
+      # This will be the password for the 'postgres' superuser
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+
